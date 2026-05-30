@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WebComputer.Data;
 
@@ -10,9 +11,11 @@ using WebComputer.Data;
 namespace WebComputer.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260530115245_UpdateImageUrl")]
+    partial class UpdateImageUrl
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -62,7 +65,7 @@ namespace WebComputer.Migrations
                             Id = 1,
                             Brand = "Dell",
                             Description = "CPU: Core i7-13700H, RAM: 16GB DDR5, SSD: 1TB",
-                            Image = "xps15.jpg",
+                            Image = "https://www.thegioididong.com/laptop/dell-xps-15-9530-i7-71015716",
                             Name = "Dell XPS 15 9530",
                             Price = 1850.50m,
                             Quantity = 15
@@ -72,7 +75,7 @@ namespace WebComputer.Migrations
                             Id = 2,
                             Brand = "Apple",
                             Description = "CPU: Apple M3 Pro, RAM: 18GB, SSD: 512GB",
-                            Image = "macpro14.jpg",
+                            Image = "https://cdn2.cellphones.com.vn/insecure/rs:fill:0:0/q:100/plain/https://cellphones.com.vn/media/wysiwyg/laptop/macbook/macbook-pro/2023/macbook-pro-14-inch-m3-pro-2023-18gb-512gb-2.jpg",
                             Name = "MacBook Pro 14 M3",
                             Price = 1999.00m,
                             Quantity = 10
@@ -82,7 +85,7 @@ namespace WebComputer.Migrations
                             Id = 3,
                             Brand = "Asus",
                             Description = "CPU: Core i9, RAM: 32GB, VGA: RTX 4070",
-                            Image = "rogg16.jpg",
+                            Image = "https://bizweb.dktcdn.net/thumb/grande/100/512/769/products/asus-rog-strix-g16-g615lr-3-19c20be4-e461-4b04-83b5-2c5bb0624e7e.jpg?v=1779248054407",
                             Name = "Asus ROG Strix G16",
                             Price = 1650.00m,
                             Quantity = 8
@@ -92,7 +95,7 @@ namespace WebComputer.Migrations
                             Id = 4,
                             Brand = "HP",
                             Description = "CPU: Core i7, RAM: 16GB, Cảm ứng 2-in-1",
-                            Image = "spectre14.jpg",
+                            Image = "https://www.hp.com/content/dam/sites/worldwide/personal-computers/consumer/laptops/spectre-x360-14/images/hp-spectre-x360-14.png",
                             Name = "HP Spectre x360 14",
                             Price = 1450.00m,
                             Quantity = 12
@@ -102,7 +105,7 @@ namespace WebComputer.Migrations
                             Id = 5,
                             Brand = "Lenovo",
                             Description = "Trọng lượng siêu nhẹ 1.1kg, Cực bền bỉ",
-                            Image = "thinkpad.jpg",
+                            Image = "https://p4-ofp.static.pub/fes/cms/2024/01/16/8f0d2iw3k0m3c3v7n4t8s1whh8h2r884.png",
                             Name = "Lenovo ThinkPad X1",
                             Price = 1700.00m,
                             Quantity = 20
@@ -112,7 +115,7 @@ namespace WebComputer.Migrations
                             Id = 6,
                             Brand = "Acer",
                             Description = "VGA: RTX 3070 Ti, Màn hình 165Hz",
-                            Image = "helios300.jpg",
+                            Image = "https://static.acer.com/up/Resource/Acer/Predator_Helios_16/Product_Gallery/20230104/Predator-Helios-16-PH16-71-black-01.png",
                             Name = "Acer Predator Helios",
                             Price = 1550.00m,
                             Quantity = 7
@@ -122,7 +125,7 @@ namespace WebComputer.Migrations
                             Id = 7,
                             Brand = "MSI",
                             Description = "Thiết kế kim loại nguyên khối, RTX 4060",
-                            Image = "stealth16.jpg",
+                            Image = "https://storage-asset.msi.com/global/picture/image/feature/nb/Stealth/stealth16studioa13v/images/kv-nb.png",
                             Name = "MSI Stealth 16 Studio",
                             Price = 1800.00m,
                             Quantity = 5
@@ -132,7 +135,7 @@ namespace WebComputer.Migrations
                             Id = 8,
                             Brand = "Dell",
                             Description = "Laptop văn phòng giá rẻ, Core i5 thế hệ 12",
-                            Image = "inspiron15.jpg",
+                            Image = "https://i.dell.com/is/image/DellContent/content/dam/ss2/product-images/page/category/laptop/inspiron-15-3530-laptop.png",
                             Name = "Dell Inspiron 15",
                             Price = 650.00m,
                             Quantity = 30
@@ -142,7 +145,7 @@ namespace WebComputer.Migrations
                             Id = 9,
                             Brand = "Asus",
                             Description = "Màn hình OLED sắc nét, Ryzen 7",
-                            Image = "asusvivobook14x.jpg",
+                            Image = "https://dlcdnwebimgs.asus.com/gain/6B8BCE70-6F3C-4F17-A1C3-54E64F9A9E2A/w800",
                             Name = "Asus VivoBook 14X",
                             Price = 850.00m,
                             Quantity = 25
@@ -152,7 +155,7 @@ namespace WebComputer.Migrations
                             Id = 10,
                             Brand = "Apple",
                             Description = "Pin 18 tiếng, Màn hình 15.3 inch",
-                            Image = "macair15m2.jpg",
+                            Image = "https://store.storeimages.cdn-apple.com/4982/as-images.apple.com/is/macbook-air-15-midnight-gallery1-202306",
                             Name = "MacBook Air 15 M2",
                             Price = 1299.00m,
                             Quantity = 18
@@ -200,7 +203,7 @@ namespace WebComputer.Migrations
                             Id = 1,
                             Brand = "Logitech",
                             Description = "Chuột công thái học cao cấp",
-                            Image = "mxmaster3s.jpg",
+                            Image = "https://resource.logitech.com/w_800,c_limit,q_auto,f_auto,dpr_1.0/content/dam/logitech/en/products/mice/mx-master-3s/gallery/mx-master-3s-top-view-graphite.png",
                             Name = "Chuột Logitech MX Master 3S",
                             Price = 99.99m,
                             Quantity = 50
@@ -210,7 +213,7 @@ namespace WebComputer.Migrations
                             Id = 2,
                             Brand = "Keychron",
                             Description = "Bàn phím cơ không dây TKL",
-                            Image = "keychronk8pro1.jpg",
+                            Image = "https://cdn.shopify.com/s/files/1/0059/0630/1017/products/Keychron-K8-Pro-QMK-VIA-Wireless-Mechanical-Keyboard.jpg",
                             Name = "Bàn phím Keychron K8 Pro",
                             Price = 110.00m,
                             Quantity = 30
@@ -220,7 +223,7 @@ namespace WebComputer.Migrations
                             Id = 3,
                             Brand = "Dell",
                             Description = "Màn hình 27 inch 4K chuẩn màu đồ họa",
-                            Image = "u2723qe.jpg",
+                            Image = "https://i.dell.com/is/image/DellContent/content/dam/images/products/monitors/u-series/u2723qe/u2723qe-monitor-gallery-1.png",
                             Name = "Màn hình Dell U2723QE",
                             Price = 550.00m,
                             Quantity = 15
@@ -230,7 +233,7 @@ namespace WebComputer.Migrations
                             Id = 4,
                             Brand = "Sony",
                             Description = "Tai nghe Over-ear chống ồn chủ động",
-                            Image = "sonywh1000xm5.jpg",
+                            Image = "https://sony.scene7.com/is/image/sonyglobalsolutions/wh-1000xm5-black-gallery-image-1",
                             Name = "Tai nghe Sony WH-1000XM5",
                             Price = 349.00m,
                             Quantity = 20
@@ -240,10 +243,60 @@ namespace WebComputer.Migrations
                             Id = 5,
                             Brand = "Samsung",
                             Description = "Tốc độ đọc 7450 MB/s",
-                            Image = "SamsungSSD990PRO.jpg",
+                            Image = "https://images.samsung.com/is/image/samsung/p6pim/vn/mz-v9p1t0bw/gallery/vn-990-pro-mz-v9p1t0bw-537129645",
                             Name = "SSD Samsung 990 PRO 1TB",
                             Price = 129.50m,
                             Quantity = 40
+                        },
+                        new
+                        {
+                            Id = 6,
+                            Brand = "Corsair",
+                            Description = "DDR5 6000MHz",
+                            Image = "https://www.corsair.com/medias/sys_master/images/images/h2e/h34/10307134369822/-CMK32GX5M2B6000C36-Gallery-VENGEANCE-DDR5-01.png",
+                            Name = "RAM Corsair Vengeance 32GB",
+                            Price = 115.00m,
+                            Quantity = 35
+                        },
+                        new
+                        {
+                            Id = 7,
+                            Brand = "NVIDIA",
+                            Description = "Card đồ họa 12GB GDDR6X",
+                            Image = "https://www.nvidia.com/content/dam/en-zz/Solutions/geforce/ada/rtx-4070-ti/geforce-rtx-4070-ti-gallery-b.jpg",
+                            Name = "VGA RTX 4070 Ti",
+                            Price = 799.00m,
+                            Quantity = 10
+                        },
+                        new
+                        {
+                            Id = 8,
+                            Brand = "NZXT",
+                            Description = "Tản nhiệt nước AIO có màn LCD",
+                            Image = "https://nzxt.com/assets/cms/34299/1682518736-kraken-240-rgb-black-1.png",
+                            Name = "Tản nhiệt NZXT Kraken 240",
+                            Price = 139.00m,
+                            Quantity = 25
+                        },
+                        new
+                        {
+                            Id = 9,
+                            Brand = "Shure",
+                            Description = "Micro thu âm chuẩn Studio",
+                            Image = "https://www.shure.com/damfiles/default/global/products/microphones/sm7b/sm7b-front.png",
+                            Name = "Micro Shure SM7B",
+                            Price = 399.00m,
+                            Quantity = 12
+                        },
+                        new
+                        {
+                            Id = 10,
+                            Brand = "SteelSeries",
+                            Description = "Lót chuột size L",
+                            Image = "https://media.steelseriescdn.com/thumbs/catalog/items/63842/63842_img1.png",
+                            Name = "Bàn di chuột SteelSeries",
+                            Price = 15.00m,
+                            Quantity = 100
                         });
                 });
 #pragma warning restore 612, 618

@@ -11,7 +11,7 @@
                 <i class="fa-solid fa-plus"></i> Thêm mới máy tính
             </div>
             <div class="card-body p-4 bg-white">
-                <form asp-action="Create" method="post">
+                <form asp-action="Create" method="post" enctype="multipart/form-data">
                     <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
 
                     <div class="row mb-3">
@@ -41,9 +41,9 @@
                     </div>
 
                     <div class="mb-3">
-                        <label asp-for="ImageUrl" class="form-label fw-bold"><i class="fa-regular fa-image"></i> Đường dẫn ảnh (URL)</label>
-                        <input asp-for="ImageUrl" class="form-control" type="url" placeholder="Nhập https://..." />
-                        <span asp-validation-for="ImageUrl" class="text-danger small"></span>
+                        <label asp-for="ImageUpload" class="form-label fw-bold"><i class="fa-regular fa-image"></i> Hình ảnh sản phẩm</label>
+                        <input asp-for="ImageUpload" class="form-control" type="file" accept="image/*" />
+                        <span asp-validation-for="ImageUpload" class="text-danger small"></span>
                     </div>
 
                     <div class="mb-4">

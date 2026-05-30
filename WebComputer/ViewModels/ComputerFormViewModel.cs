@@ -1,5 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using Microsoft.AspNetCore.Http; // Bắt buộc phải có để sử dụng IFormFile
+using Microsoft.AspNetCore.Http;
 
 namespace WebComputer.ViewModels
 {
@@ -40,5 +40,11 @@ namespace WebComputer.ViewModels
         [Required(ErrorMessage = "Vui lòng nhập đường dẫn hình ảnh")]
         [DataType(DataType.ImageUrl)]
         public string ImageUrl { get; set; } = string.Empty;
+
+        // Added to match the file-input in the Create view
+        public IFormFile? ImageUpload { get; set; }
+
+        [System.ComponentModel.DataAnnotations.Display(Name = "Existing Image")]
+        public string ExistingImage { get; set; }
     }
 }

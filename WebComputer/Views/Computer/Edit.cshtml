@@ -11,10 +11,12 @@
                 <i class="fa-solid fa-pen-to-square"></i> Cập nhật thông tin máy tính
             </div>
             <div class="card-body p-4 bg-white">
-                <form asp-action="Edit" method="post">
+                <form asp-action="Edit" method="post" enctype="multipart/form-data">
                     <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
                     
                     <input type="hidden" asp-for="Id" />
+                    <input type="hidden" asp-for="ExistingImage" />
+
                     <div class="row mb-3">
                         <div class="col-md-8">
                             <label asp-for="Name" class="form-label fw-bold"><i class="fa-solid fa-tag"></i> Tên máy tính</label>
@@ -44,11 +46,11 @@
                     <div class="mb-3 p-3 bg-light rounded border">
                         <label class="form-label fw-bold"><i class="fa-regular fa-image"></i> Ảnh hiện tại</label>
                         <div class="mb-2">
-                            <img src="@Model.ImageUrl" alt="Ảnh cũ" class="img-thumbnail" style="max-height: 120px;" onerror="this.src='/uploads/default.jpg';" />
+                            <img src="~/uploads/@Model.ExistingImage" alt="Ảnh cũ" class="img-thumbnail" style="max-height: 120px;" onerror="this.src='/uploads/default.jpg';" />
                         </div>
-                        <label asp-for="ImageUrl" class="form-label mt-2">Đường dẫn ảnh (URL) mới</label>
-                        <input asp-for="ImageUrl" class="form-control form-control-sm" type="url" placeholder="Nhập https://..." />
-                        <span asp-validation-for="ImageUrl" class="text-danger small"></span>
+                        <label asp-for="ImageUpload" class="form-label mt-2">Chọn ảnh mới (Bỏ trống nếu muốn giữ ảnh cũ)</label>
+                        <input asp-for="ImageUpload" class="form-control form-control-sm" type="file" accept="image/*" />
+                        <span asp-validation-for="ImageUpload" class="text-danger small"></span>
                     </div>
 
                     <div class="mb-4">

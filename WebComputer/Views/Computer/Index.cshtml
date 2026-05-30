@@ -32,7 +32,7 @@
                     {
                         <tr>
                             <td>
-                                <img src="@item.Image" alt="@item.Name" class="rounded shadow-sm" style="width: 70px; height: 70px; object-fit: cover;" onerror="this.src='https://via.placeholder.com/150';" />
+                                <img src="~/uploads/@item.Image" alt="@item.Name" class="rounded shadow-sm" style="width: 70px; height: 70px; object-fit: cover;" onerror="this.src='/uploads/default.jpg';" />
                             </td>
                             <td class="text-start fw-bold">@item.Name</td>
                             <td><span class="badge" style="background-color: var(--pastel-purple);">@item.Brand</span></td>

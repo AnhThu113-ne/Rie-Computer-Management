@@ -1,0 +1,104 @@
+﻿@model IEnumerable<WebComputer.Models.Computer>
+@{
+    ViewData["Title"] = "Trang chủ";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="hero-banner text-center mb-5">
+    <h1 class="display-5 fw-bold" style="color: var(--pastel-purple-dark);">
+        <i class="fa-solid fa-rocket"></i> Khám phá vũ trụ công nghệ
+    </h1>
+    <p class="lead text-muted mt-3">Những dòng Laptop mạnh mẽ và thiết kế thời thượng nhất đang chờ bạn.</p>
+</div>
+
+<div class="card border-0 shadow-sm mb-5 p-4" style="border-radius: 20px; background-color: var(--pastel-purple-light);">
+    <form asp-controller="Home" asp-action="Index" method="get">
+        <div class="row g-3 align-items-center">
+            
+            <div class="col-md-5">
+                <div class="input-group shadow-sm" style="border-radius: 12px; overflow: hidden;">
+                    <span class="input-group-text bg-white border-0" style="color: var(--pastel-purple-dark);">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </span>
+                    <input type="text" name="searchString" value="@ViewBag.CurrentSearch" class="form-control border-0 focus-ring" style="--bs-focus-ring-color: rgba(195,177,225, .25)" placeholder="Bạn muốn tìm máy tính gì?" />
+                </div>
+            </div>
+            
+            <div class="col-md-4">
+                <div class="input-group shadow-sm" style="border-radius: 12px; overflow: hidden;">
+                    <span class="input-group-text bg-white border-0" style="color: var(--pastel-purple-dark);">
+                        <i class="fa-solid fa-filter"></i>
+                    </span>
+                    <select name="brand" asp-items="ViewBag.Brands" class="form-select border-0 focus-ring" style="--bs-focus-ring-color: rgba(195,177,225, .25)">
+                        <option value="">-- Tất cả các hãng --</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="col-md-3 d-flex gap-2">
+                <button type="submit" class="btn btn-pastel w-100 rounded-pill shadow-sm"><i class="fa-solid fa-magnifying-glass"></i> Tìm ngay</button>
+                <a href="/Home/Index" class="btn btn-light rounded-pill shadow-sm border px-3" title="Xóa bộ lọc">
+                    <i class="fa-solid fa-rotate-right"></i>
+                </a>
+            </div>
+            
+        </div>
+    </form>
+</div>
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h3 class="fw-bold" style="color: var(--text-main);">
+        <i class="fa-solid fa-box-open" style="color: var(--pastel-purple);"></i> Sản phẩm nổi bật
+    </h3>
+    
+    <span class="text-muted"><i class="fa-solid fa-list"></i> Hiển thị @Model.Count() kết quả</span>
+</div>
+
+@if (!Model.Any())
+{
+    <div class="text-center py-5">
+        <i class="fa-regular fa-face-frown fs-1 mb-3" style="color: var(--pastel-purple);"></i>
+        <h4 class="text-muted">Rất tiếc, không tìm thấy sản phẩm nào phù hợp!</h4>
+        <a href="/Home/Index" class="btn btn-outline-pastel mt-3 rounded-pill">Quay lại danh sách</a>
+    </div>
+}
+else
+{
+    <div class="row row-cols-1 row-cols-md-3 row-cols-lg-4 g-4 mb-5">
+        @foreach (var item in Model)
+        {
+            <div class="col">
+                <div class="card h-100 border-0 shadow-sm" style="border-radius: 15px; transition: transform 0.3s; cursor: pointer;" onmouseover="this.style.transform='translateY(-8px)'" onmouseout="this.style.transform='translateY(0)'">
+                    
+                    <div class="p-3 text-center">
+                        <img src="@item.Image" class="card-img-top rounded" alt="@item.Name" style="height: 180px; object-fit: contain;" onerror="this.src='https://via.placeholder.com/180';" />
+                    </div>
+                    
+                    <div class="card-body d-flex flex-column">
+                        <span class="badge mb-2 align-self-start" style="background-color: var(--pastel-purple-light); color: var(--pastel-purple-dark);">@item.Brand</span>
+                        <h5 class="card-title fw-bold text-truncate" title="@item.Name">@item.Name</h5>
+                        
+                        <div class="mt-auto pt-3 d-flex justify-content-between align-items-center">
+                            <span class="fs-5 fw-bold text-danger">$@item.Price.ToString("N2")</span>
+                            
+                            @if (item.Quantity > 0)
+                            {
+                                <span class="text-success small fw-bold"><i class="fa-solid fa-check"></i> Còn hàng</span>
+                            }
+                            else
+                            {
+                                <span class="text-muted small fw-bold"><i class="fa-solid fa-phone"></i> Liên hệ</span>
+                            }
+                        </div>
+                    </div>
+                    
+                    <div class="card-footer bg-white border-0 text-center pb-3">
+                        <a href="/Home/Detail/@item.Id" class="btn btn-pastel w-100 rounded-pill">
+                            <i class="fa-regular fa-eye"></i> Xem chi tiết
+                        </a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}

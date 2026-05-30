@@ -1,0 +1,69 @@
+﻿@model WebComputer.Models.Computer
+@{
+    ViewData["Title"] = Model.Name;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<nav aria-label="breadcrumb" class="mt-4 mb-4">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="/Home/Index" style="color: var(--pastel-purple-dark); text-decoration: none;"><i class="fa-solid fa-house"></i> Trang chủ</a></li>
+        <li class="breadcrumb-item"><a href="#" style="color: var(--pastel-purple-dark); text-decoration: none;">@Model.Brand</a></li>
+        <li class="breadcrumb-item active" aria-current="page">@Model.Name</li>
+    </ol>
+</nav>
+
+<div class="card border-0 shadow-sm mb-5" style="border-radius: 20px; overflow: hidden;">
+    <div class="row g-0">
+        
+        <div class="col-md-5 d-flex align-items-center justify-content-center p-5 bg-white">
+            <img src="@Model.Image" class="img-fluid rounded" alt="@Model.Name" style="max-height: 400px; object-fit: contain;" onerror="this.src='https://via.placeholder.com/400';" />
+        </div>
+        
+        <div class="col-md-7">
+            <div class="card-body p-5" style="background-color: var(--pastel-purple-light); height: 100%;">
+                
+                <div class="badge bg-white mb-3 px-3 py-2 border shadow-sm" style="color: var(--pastel-purple-dark); font-size: 0.9rem;">
+                    <i class="fa-solid fa-award"></i> Chính hãng @Model.Brand
+                </div>
+                
+                <h2 class="card-title fw-bold mb-3" style="color: var(--text-main);">@Model.Name</h2>
+                
+                <h3 class="text-danger fw-bold mb-4">$@Model.Price.ToString("N2")</h3>
+
+                <div class="mb-4 bg-white p-4 rounded-4 shadow-sm border-0">
+                    <h5 class="fw-bold" style="color: var(--pastel-purple-dark);">
+                        <i class="fa-solid fa-microchip"></i> Thông số cấu hình
+                    </h5>
+                    <hr style="border-color: var(--pastel-purple);">
+                    <p class="card-text mb-0" style="white-space: pre-line; line-height: 1.8;">
+                        @if (string.IsNullOrEmpty(Model.Description))
+                        {
+                            <span class="text-muted">Chưa có thông tin mô tả chi tiết.</span>
+                        }
+                        else
+                        {
+                            @Model.Description
+                        }
+                    </p>
+                </div>
+
+                <div class="d-flex align-items-center gap-4 mt-5">
+                    @if (Model.Quantity > 0)
+                    {
+                        <button class="btn btn-pastel btn-lg px-5 rounded-pill shadow">
+                            <i class="fa-solid fa-cart-plus"></i> Thêm vào giỏ hàng
+                        </button>
+                        <span class="text-success fw-bold"><i class="fa-solid fa-boxes-stacked"></i> Kho: @Model.Quantity máy</span>
+                    }
+                    else
+                    {
+                        <button class="btn btn-secondary btn-lg px-5 rounded-pill shadow" disabled>
+                            <i class="fa-solid fa-phone-slash"></i> Tạm hết hàng
+                        </button>
+                    }
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

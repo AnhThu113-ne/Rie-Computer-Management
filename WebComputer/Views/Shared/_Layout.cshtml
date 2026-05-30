@@ -1,0 +1,85 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Tiệm Máy Tính Rie</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    
+    <style>
+        :root {
+            --pastel-purple: #C3B1E1;
+            --pastel-purple-light: #F4F0FB;
+            --pastel-purple-dark: #9B82C3;
+            --text-main: #5C4D68;
+        }
+        body { 
+            background-color: #FAFAFA; 
+            color: var(--text-main); 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+        }
+        
+        /* Navbar */
+        .navbar-store { background-color: rgba(255, 255, 255, 0.95); backdrop-filter: blur(10px); border-bottom: 2px solid var(--pastel-purple-light); }
+        .navbar-brand { color: var(--pastel-purple-dark) !important; font-weight: 800; font-size: 1.5rem; }
+        .nav-link { color: var(--text-main); font-weight: 500; transition: color 0.3s ease; }
+        .nav-link:hover { color: var(--pastel-purple-dark); }
+        
+        /* Nút bấm Pastel */
+        .btn-pastel { background-color: var(--pastel-purple); color: white; border: none; font-weight: 600; transition: all 0.3s; }
+        .btn-pastel:hover { background-color: var(--pastel-purple-dark); color: white; transform: translateY(-2px); box-shadow: 0 4px 10px rgba(195,177,225,0.4); }
+        .btn-outline-pastel { border: 2px solid var(--pastel-purple); color: var(--pastel-purple-dark); font-weight: 600; }
+        .btn-outline-pastel:hover { background-color: var(--pastel-purple); color: white; }
+
+        /* Banner (Hero Section) */
+        .hero-banner {
+            background: linear-gradient(135deg, var(--pastel-purple-light) 0%, #E8DFF5 100%);
+            border-radius: 20px;
+            padding: 3rem 2rem;
+            margin-top: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+        }
+
+        /* Footer */
+        .footer-store { background-color: var(--pastel-purple-light); border-top: 1px solid #E8DFF5; padding: 2rem 0; margin-top: 3rem; }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-store sticky-top shadow-sm py-3">
+        <div class="container">
+            <a class="navbar-brand" href="/Home/Index">
+                <i class="fa-solid fa-laptop-code"></i> Rie<span style="color: var(--pastel-purple);">PC</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
+                    <li class="nav-item"><a class="nav-link mx-2" href="/Home/Index"><i class="fa-solid fa-house"></i> Trang chủ</a></li>
+                    <li class="nav-item"><a class="nav-link mx-2" href="#"><i class="fa-solid fa-fire"></i> Khuyến mãi</a></li>
+                    <li class="nav-item"><a class="nav-link mx-2" href="#"><i class="fa-solid fa-headset"></i> Hỗ trợ</a></li>
+                    <li class="nav-item ms-lg-3">
+                        <a href="/Computer/Index" class="btn btn-outline-pastel rounded-pill px-4">
+                            <i class="fa-solid fa-user-tie"></i> Kênh Admin
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container min-vh-100">
+        @RenderBody()
+    </div>
+
+    <footer class="footer-store text-center">
+        <div class="container">
+            <h5 class="fw-bold" style="color: var(--pastel-purple-dark);"><i class="fa-solid fa-heart"></i> Tiệm Máy Tính RiePC</h5>
+            <p class="text-muted mb-0">Trang web uy tín - chất lượng - tận tâm</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

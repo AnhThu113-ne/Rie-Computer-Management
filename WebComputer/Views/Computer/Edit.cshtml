@@ -1,0 +1,67 @@
+﻿@model WebComputer.ViewModels.ComputerFormViewModel
+@{
+    ViewData["Title"] = "Sửa Thông tin";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card card-pastel">
+            <div class="card-header card-header-pastel fs-5">
+                <i class="fa-solid fa-pen-to-square"></i> Cập nhật thông tin máy tính
+            </div>
+            <div class="card-body p-4 bg-white">
+                <form asp-action="Edit" method="post">
+                    <div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+                    
+                    <input type="hidden" asp-for="Id" />
+                    <div class="row mb-3">
+                        <div class="col-md-8">
+                            <label asp-for="Name" class="form-label fw-bold"><i class="fa-solid fa-tag"></i> Tên máy tính</label>
+                            <input asp-for="Name" class="form-control" />
+                            <span asp-validation-for="Name" class="text-danger small"></span>
+                        </div>
+                        <div class="col-md-4">
+                            <label asp-for="Brand" class="form-label fw-bold"><i class="fa-solid fa-building"></i> Hãng</label>
+                            <input asp-for="Brand" class="form-control" />
+                            <span asp-validation-for="Brand" class="text-danger small"></span>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label asp-for="Price" class="form-label fw-bold"><i class="fa-solid fa-sack-dollar"></i> Giá bán</label>
+                            <input asp-for="Price" class="form-control" type="number" step="0.01" />
+                            <span asp-validation-for="Price" class="text-danger small"></span>
+                        </div>
+                        <div class="col-md-6">
+                            <label asp-for="Quantity" class="form-label fw-bold"><i class="fa-solid fa-boxes-stacked"></i> Số lượng kho</label>
+                            <input asp-for="Quantity" class="form-control" type="number" />
+                            <span asp-validation-for="Quantity" class="text-danger small"></span>
+                        </div>
+                    </div>
+
+                    <div class="mb-3 p-3 bg-light rounded border">
+                        <label class="form-label fw-bold"><i class="fa-regular fa-image"></i> Ảnh hiện tại</label>
+                        <div class="mb-2">
+                            <img src="@Model.ImageUrl" alt="Ảnh cũ" class="img-thumbnail" style="max-height: 120px;" onerror="this.src='/uploads/default.jpg';" />
+                        </div>
+                        <label asp-for="ImageUrl" class="form-label mt-2">Đường dẫn ảnh (URL) mới</label>
+                        <input asp-for="ImageUrl" class="form-control form-control-sm" type="url" placeholder="Nhập https://..." />
+                        <span asp-validation-for="ImageUrl" class="text-danger small"></span>
+                    </div>
+
+                    <div class="mb-4">
+                        <label asp-for="Description" class="form-label fw-bold"><i class="fa-solid fa-circle-info"></i> Mô tả chi tiết</label>
+                        <textarea asp-for="Description" class="form-control" rows="4"></textarea>
+                    </div>
+
+                    <div class="d-flex justify-content-between">
+                        <a href="/Computer/Index" class="btn btn-light border"><i class="fa-solid fa-arrow-left"></i> Hủy</a>
+                        <button type="submit" class="btn btn-pastel px-4"><i class="fa-solid fa-check-double"></i> Cập nhật</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

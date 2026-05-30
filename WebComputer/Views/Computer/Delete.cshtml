@@ -1,0 +1,28 @@
+﻿@model WebComputer.Models.Computer
+@{
+    ViewData["Title"] = "Xác nhận xóa";
+    Layout = "~/Views/Shared/_LayoutAdmin.cshtml";
+}
+
+<div class="row justify-content-center mt-4">
+    <div class="col-md-6">
+        <div class="card border-danger shadow">
+            <div class="card-header bg-danger text-white fs-5">
+                <i class="fa-solid fa-triangle-exclamation"></i> Xác nhận xóa dữ liệu
+            </div>
+            <div class="card-body bg-white text-center p-5">
+                <img src="~/uploads/@Model.Image" alt="@Model.Name" class="rounded shadow-sm mb-3" style="height: 150px; object-fit: cover;" onerror="this.src='/uploads/default.jpg';" />
+                <h4 class="text-danger fw-bold">@Model.Name</h4>
+                <p class="text-muted">Bạn có chắc chắn muốn xóa vĩnh viễn sản phẩm này khỏi hệ thống không? Dữ liệu không thể khôi phục sau khi xóa.</p>
+                
+                <form asp-action="Delete" method="post" class="mt-4">
+                    <input type="hidden" asp-for="Id" />
+                    <div class="d-flex justify-content-center gap-3">
+                        <a href="/Computer/Index" class="btn btn-secondary px-4"><i class="fa-solid fa-arrow-rotate-left"></i> Quay lại</a>
+                        <button type="submit" class="btn btn-danger px-4"><i class="fa-solid fa-trash-can"></i> Xóa vĩnh viễn</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
